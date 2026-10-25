@@ -1,7 +1,7 @@
 {
   "sites": [
     {"summary": "/kula-today/summary.json"},
-    {"title": "Makapu‘u", "status": "Under construction", "camera": "/kula-today/cameras/makapuu.jpg"},
+    {"summary": "/kula-today/makapuu/summary.json"},
     {"title": "Kahana Bay", "status": "Under construction"}
   ]
 }
