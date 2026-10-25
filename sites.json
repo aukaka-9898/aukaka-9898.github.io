@@ -1,5 +1,6 @@
 {
   "sites": [
-    {"summary": "/kula-today/summary.json"}
+    {"summary": "/kula-today/summary.json"},
+    {"title": "Makapu‘u", "status": "Under construction", "note": "Ridge soaring on Oʻahu's east end. Coming next."}
   ]
 }
