@@ -44,7 +44,6 @@ h2 { font: 700 1.3rem/1.1 var(--display); margin: 0; }
 .chip { font: 600 .72rem var(--display); letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
 .chip.good { color: var(--good); } .chip.warn { color: var(--warn); } .chip.fair { color: var(--fair); }
 .summary { margin: 0; font-size: .92rem; }
-.limited { font: 700 .8rem var(--display); letter-spacing: .08em; text-transform: uppercase; color: var(--warn); border: 2px solid var(--warn); border-radius: 6px; padding: 2px 8px; justify-self: start; }
 .when { font: .8rem var(--mono); color: var(--muted); }
 .notes { font-size: .84rem; color: var(--muted); max-width: 75ch; }
 .notes p { margin: 0 0 6px; }
@@ -84,7 +83,6 @@ h2 { font: 700 1.3rem/1.1 var(--display); margin: 0; }
     var h = el("div", "head"); h.appendChild(el("div", "kind", s.kind || ""));
     if (s.chip) h.appendChild(el("span", "chip " + s.chip["class"], s.chip.word));
     b.appendChild(h);
-    if (s.limited) b.appendChild(el("div", "limited", "Limited data"));
     if (s.summary) b.appendChild(el("p", "summary", s.summary));
     b.appendChild(el("div", "when", "Updated " + (s.updated || "")));
     a.appendChild(b);
