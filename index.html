@@ -44,6 +44,7 @@ h2 { font: 700 1.3rem/1.1 var(--display); margin: 0; }
 .chip { font: 600 .72rem var(--display); letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
 .chip.good { color: var(--good); } .chip.warn { color: var(--warn); } .chip.fair { color: var(--fair); }
 .summary { margin: 0; font-size: .92rem; }
+.alert { color: var(--warn); font: 700 .86rem var(--body); margin: 2px 0 4px; }
 .when { font: .8rem var(--mono); color: var(--muted); }
 .notes { font-size: .84rem; color: var(--muted); max-width: 75ch; }
 .notes p { margin: 0 0 6px; }
@@ -83,6 +84,7 @@ h2 { font: 700 1.3rem/1.1 var(--display); margin: 0; }
     var h = el("div", "head"); h.appendChild(el("div", "kind", s.kind || ""));
     if (s.chip) h.appendChild(el("span", "chip " + s.chip["class"], s.chip.word));
     b.appendChild(h);
+    if (s.alerts && s.alerts.length) b.appendChild(el("div", "alert", s.alerts.join(" · ")));   // NWS watches and warnings (Sam, 10-27)
     if (s.summary) b.appendChild(el("p", "summary", s.summary));
     b.appendChild(el("div", "when", "Updated " + (s.updated || "")));
     a.appendChild(b);
