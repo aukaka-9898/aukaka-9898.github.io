@@ -13,6 +13,7 @@
 :root {
   --bg: #f3f6f8; --surface: #ffffff; --ink: #17242f; --muted: #5a6b78; --rule: #d7e0e7;
   --sky: #2b67a8; --grass: #5f8a2e; --good: #3f7d2c; --warn: #a8661a; --fair: #5a6b78;
+  --chip-go: #2e7d32; --chip-caution: #b26a00; --chip-stop: #c62828;
   --display: "IBM Plex Sans Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --body: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -22,6 +23,7 @@
   :root {
     --bg: #0f171e; --surface: #16212b; --ink: #e4ecf2; --muted: #9aabb8; --rule: #2a3946;
     --sky: #7fb2ea; --grass: #9cc46a; --good: #8cc47a; --warn: #e3a45a; --fair: #9aabb8;
+    --chip-go: #81c784; --chip-caution: #ffb74d; --chip-stop: #ef7070;
     color-scheme: dark;
   }
 }
@@ -42,7 +44,11 @@ h1 { font: 700 2.1rem/1.05 var(--display); letter-spacing: .01em; margin: 0; }
 h2 { font: 700 1.3rem/1.1 var(--display); margin: 0; }
 .kind { font: 600 .72rem var(--display); letter-spacing: .12em; text-transform: uppercase; color: var(--grass); }
 .chip { font: 600 .72rem var(--display); letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
-.chip.good { color: var(--good); } .chip.warn { color: var(--warn); } .chip.fair { color: var(--fair); }
+/* Same traffic-light badges as the site pages */
+.chip.good { color: var(--chip-go); background: color-mix(in srgb, var(--chip-go) 14%, transparent); }
+.chip.fair { color: var(--chip-caution); background: color-mix(in srgb, var(--chip-caution) 16%, transparent); }
+.chip.warn { color: var(--chip-stop); background: color-mix(in srgb, var(--chip-stop) 14%, transparent); }
+.chip.idle { color: var(--fair); }
 .summary { margin: 0; font-size: .92rem; }
 .alert { color: var(--warn); font: 700 .86rem var(--body); margin: 2px 0 4px; }
 .when { font: .8rem var(--mono); color: var(--muted); }
@@ -71,7 +77,7 @@ h2 { font: 700 1.3rem/1.1 var(--display); margin: 0; }
       var c = el("div", "card soon"), cb = el("div", "body"), ch = el("div", "head");
       c.appendChild(el("div", "top", s.title));
       if (s.camera) { var pic = el("img"); pic.src = s.camera + "?" + Math.floor(Date.now() / 300000); pic.alt = s.title + " camera"; pic.loading = "lazy"; c.appendChild(pic); }
-      ch.appendChild(el("span", "chip fair", s.status));
+      ch.appendChild(el("span", "chip idle", s.status));
       cb.appendChild(ch);
       if (s.note) cb.appendChild(el("p", "summary", s.note));
       c.appendChild(cb);
