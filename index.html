@@ -76,7 +76,7 @@ h2 { font: 700 1.3rem/1.1 var(--display); margin: 0; }
     if (s.status) {
       var c = el("div", "card soon"), cb = el("div", "body"), ch = el("div", "head");
       c.appendChild(el("div", "top", s.title));
-      if (s.camera) { var pic = el("img"); pic.src = s.camera + "?" + Math.floor(Date.now() / 300000); pic.alt = s.title + " camera"; pic.loading = "lazy"; c.appendChild(pic); }
+      if (s.camera) { var pic = el("img"); pic.src = /^https?:/.test(s.camera) ? s.camera : s.camera + "?" + Math.floor(Date.now() / 300000); pic.alt = s.title + " camera"; pic.loading = "lazy"; c.appendChild(pic); }
       ch.appendChild(el("span", "chip idle", s.status));
       cb.appendChild(ch);
       if (s.note) cb.appendChild(el("p", "summary", s.note));
@@ -85,7 +85,7 @@ h2 { font: 700 1.3rem/1.1 var(--display); margin: 0; }
     }
     var a = el("a", "card"); a.href = "/" + s.page;
     a.appendChild(el("div", "top", s.title));         // site name above the picture (Sam)
-    if (s.camera) { var img = el("img"); img.src = "/" + s.page + s.camera; img.alt = s.title + " camera"; img.loading = "lazy"; a.appendChild(img); }
+    if (s.camera) { var img = el("img"); img.src = /^https?:/.test(s.camera) ? s.camera : "/" + s.page + s.camera; img.alt = s.title + " camera"; img.loading = "lazy"; a.appendChild(img); }
     var b = el("div", "body");
     var h = el("div", "head"); h.appendChild(el("div", "kind", s.kind || ""));
     if (s.chip) h.appendChild(el("span", "chip " + s.chip["class"], s.chip.word));
